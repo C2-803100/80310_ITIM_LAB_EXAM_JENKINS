@@ -14,12 +14,12 @@ pipeline {
         }
         stage ('docker build image') {
             steps {
-                sh '/usr/bin/docker image build -t ankush1996/mywebsite .'
+                sh '/usr/bin/docker image build -t ankush1996/mywebsitehub .'
             }
         }
         stage ('docker push image') {
             steps {
-                sh '/usr/bin/docker image push ankush1996/mywebsite'
+                sh '/usr/bin/docker image push ankush1996/mywebsitehub'
             }
         }
         stage ('docker remove service') {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('docker create service') {
             steps {
-                sh '/usr/bin/docker service create --name myservice1 -p 9090:80 --replicas 5 ankush1996/mywebsite'
+                sh '/usr/bin/docker service create --name myservice1 -p 9098:80 --replicas 5 ankush1996/mywebsite'
             }
         }
     }
